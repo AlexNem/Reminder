@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager manager;
     private FragmentTransaction transaction;
     String test = "tralyalya";
+    String d;
 
 
     @Override
