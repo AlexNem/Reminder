@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TasksFragment tasksFragment;
     private FragmentManager manager;
     private FragmentTransaction transaction;
-    String test = "tralyalya";
+    String test = "хуйляля";
     String d;
 
 
