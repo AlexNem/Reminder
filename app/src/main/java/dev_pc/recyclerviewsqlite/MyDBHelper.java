@@ -11,12 +11,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDBHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "MyTasks";
-    private static final int DB_VERSION = 1;
-    private static final String TABLE_NAME = "Tasks";
-    private static final String KEY_ID = "_id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_INF = "inf";
+    public static final String DB_NAME = "MyTasks";
+    public static final int DB_VERSION = 1;
+    public static final String TABLE_NAME = "Tasks";
+    public static final String KEY_ID = "_id";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_INF = "inf";
 
     public MyDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -37,14 +37,4 @@ public class MyDBHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    public void addZadachu(AdapterZadach adapterZadach){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(KEY_ID, adapterZadach.getId());
-        cv.put(KEY_NAME, adapterZadach.getName());
-        cv.put(KEY_INF, adapterZadach.getInf());
-        db.insert(DB_NAME, null, cv);
-        db.query(TABLE_NAME, null, null, null, null, null, null);
-        db.close();
-    }
 }

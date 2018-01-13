@@ -1,5 +1,7 @@
 package dev_pc.recyclerviewsqlite;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,13 +34,7 @@ public class FAB extends DialogFragment {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = ed_name.getText().toString();
-                inf = ed_inf.getText().toString();
-                adapterZadach = new AdapterZadach(1, name, inf);
-                MyDBHelper db = new MyDBHelper(getContext());
-                db.addZadachu(adapterZadach);
-                ed_name.setText("");
-                ed_inf.setText("");
+                addZadachu();
             }
         });
         btn_cancel = v.findViewById(R.id.btn_cansel);
@@ -49,5 +45,17 @@ public class FAB extends DialogFragment {
             }
         });
         return v;
+    }
+    public void addZadachu(){
+        MyDBHelper dbH = new MyDBHelper(getContext());
+        SQLiteDatabase db = dbH.getWritableDatabase();
+        adapterZadach = new AdapterZadach(1, ed_name.getText().toString(), ed_inf.getText().toString());
+        ContentValues cv = new ContentValues();
+        cv.put(dbH.KEY_NAME, adapterZadach.getName());
+        cv.put(dbH.KEY_INF, adapterZadach.getInf());
+        db.insert(dbH.TABLE_NAME, null, cv);
+        dbH.close();
+        ed_name.setText("");
+        ed_inf.setText("");
     }
 }
