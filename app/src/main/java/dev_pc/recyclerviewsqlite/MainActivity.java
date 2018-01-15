@@ -4,15 +4,20 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import android.widget.Toast;
+
+
+
+import dev_pc.recyclerviewsqlite.fragments.birthdayFragment.BirthdayFragment;
+import dev_pc.recyclerviewsqlite.fragments.taskFragment.ItemFragment;
+
+public class MainActivity extends AppCompatActivity implements
+        ItemFragment.OnListFragmentInteractionListener,
+        BirthdayFragment.OnListFragmentInteractionListener{
 
 
     private ViewPager viewPager;
-
-    FAB fab;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_layout);
 
         initTabs();
-        fab = new FAB();
     }
 
-
-    public void clicFAB(View v){
-        switch (v.getId()){
-            case R.id.FAB:
-                fab.show(getSupportFragmentManager(), "fab");
-                break;
-        }
-    }
 
     private void initTabs() {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -39,5 +35,16 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.TabLayout);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public void onListFragmentInteraction(AdapterZadach item) {
+        Toast.makeText(this, Integer.toString(item.getId()), Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onListFragmentInteraction1(AdapterBirthday item) {
+        Toast.makeText(this, Integer.toString(item.getId()), Toast.LENGTH_SHORT).show();
     }
 }

@@ -16,12 +16,11 @@ import android.widget.EditText;
  * Created by Dev-pc on 27.12.2017.
  */
 
-public class FAB extends DialogFragment {
+public class FABBirthday extends DialogFragment {
 
     Button btn_save, btn_cancel;
     EditText ed_name, ed_inf;
-    String name, inf;
-    AdapterZadach adapterZadach;
+    AdapterBirthday adapterBirthday;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -34,7 +33,8 @@ public class FAB extends DialogFragment {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addZadachu();
+                addBirthday();
+
             }
         });
         btn_cancel = v.findViewById(R.id.btn_cansel);
@@ -46,15 +46,16 @@ public class FAB extends DialogFragment {
         });
         return v;
     }
-    public void addZadachu(){
-        MyDBHelper dbH = new MyDBHelper(getContext());
-        SQLiteDatabase db = dbH.getWritableDatabase();
-        adapterZadach = new AdapterZadach(1, ed_name.getText().toString(), ed_inf.getText().toString());
-        ContentValues cv = new ContentValues();
-        cv.put(dbH.KEY_NAME, adapterZadach.getName());
-        cv.put(dbH.KEY_INF, adapterZadach.getInf());
-        db.insert(dbH.TABLE_NAME, null, cv);
-        dbH.close();
+
+    public void addBirthday(){
+        MyDBHelper dbHelper = new MyDBHelper(getContext());
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        adapterBirthday = new AdapterBirthday(1,ed_name.getText().toString(), ed_inf.getText().toString());
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(dbHelper.KEY_BNAME, adapterBirthday.getName());
+        contentValues.put(dbHelper.KEY_DATA, adapterBirthday.getData());
+        database.insert(dbHelper.TABLE_BIRTHDAY, null, contentValues);
+        dbHelper.close();
         ed_name.setText("");
         ed_inf.setText("");
     }

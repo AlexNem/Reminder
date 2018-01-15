@@ -38,7 +38,7 @@ class TabsAdapter extends FragmentPagerAdapter{
 
     private void initTabsMap(Context context){
         tabs = new HashMap<>();
-        tabs.put(0, StartFragment.getInstance(context));
+        tabs.put(0, BirthdaysFragment.getInstance(context));
         tabs.put(1, TasksFragment.getInstance(context));
 
     }

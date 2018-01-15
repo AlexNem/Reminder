@@ -1,11 +1,13 @@
 package dev_pc.recyclerviewsqlite;
 
+/**
+ * Created by Dev-pc on 15.01.2018.
+ */
 
-
-public class AdapterZadach  {
+public class AdapterBirthday {
     private int id;
     private String name;
-    private String inf;
+    private String data;
 
     public int getId() {
         return id;
@@ -23,26 +25,26 @@ public class AdapterZadach  {
         this.name = name;
     }
 
-    public String getInf() {
-        return inf;
+    public String getData() {
+        return data;
     }
 
-    public void setInf(String inf) {
-        this.inf = inf;
+    public void setData(String data) {
+        this.data = data;
     }
 
-
-    public AdapterZadach(int id, String name, String inf) {
+    public AdapterBirthday(int id, String name, String data) {
         this.id = id;
         this.name = name;
-        this.inf = inf;
+        this.data = data;
     }
 
     @Override
     public String toString() {
-        return "AdapterZadach{" +
-                "name='" + name + '\'' +
-                ", inf='" + inf + '\'' +
+        return "AdapterBirthday{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", data='" + data + '\'' +
                 '}';
     }
 }
