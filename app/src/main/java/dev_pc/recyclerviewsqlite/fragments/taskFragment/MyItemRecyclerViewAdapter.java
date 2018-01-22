@@ -1,6 +1,8 @@
 package dev_pc.recyclerviewsqlite.fragments.taskFragment;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +18,14 @@ import java.util.List;
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
 
-    private final List<AdapterZadach> mValues;
+    private  List<AdapterZadach> mValues;
     private final OnListFragmentInteractionListener mListener;
 
+
     public MyItemRecyclerViewAdapter(List<AdapterZadach> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+        this.mValues = items;
+        this.mListener = listener;
+
     }
 
     @Override
@@ -44,9 +48,14 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
+
+
+
                 }
             }
         });
+
+
     }
 
     @Override

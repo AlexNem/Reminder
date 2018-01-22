@@ -104,4 +104,5 @@ public class ItemFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(AdapterZadach item);
     }
+
 }

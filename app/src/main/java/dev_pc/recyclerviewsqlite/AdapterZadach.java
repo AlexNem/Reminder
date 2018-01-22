@@ -7,6 +7,7 @@ public class AdapterZadach  {
     private String name;
     private String inf;
 
+
     public int getId() {
         return id;
     }

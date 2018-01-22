@@ -9,6 +9,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.HashMap;
 import java.util.Map;
 
+import dev_pc.recyclerviewsqlite.fragments.BirthdaysFragment;
+import dev_pc.recyclerviewsqlite.fragments.TasksFragment;
+
 class TabsAdapter extends FragmentPagerAdapter{
     private Map<Integer, AbstractTabsFragment> tabs;
     Context context;

@@ -105,5 +105,6 @@ public class BirthdayFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction1(AdapterBirthday item);
+
     }
 }

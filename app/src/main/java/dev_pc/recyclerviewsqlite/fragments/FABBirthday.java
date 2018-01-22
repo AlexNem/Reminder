@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite;
+package dev_pc.recyclerviewsqlite.fragments;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import dev_pc.recyclerviewsqlite.AdapterBirthday;
+import dev_pc.recyclerviewsqlite.MyDBHelper;
+import dev_pc.recyclerviewsqlite.R;
 
 /**
  * Created by Dev-pc on 27.12.2017.
@@ -25,7 +30,7 @@ public class FABBirthday extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        getDialog();
+        getDialog().setTitle("Нова замітка!");
         View v = inflater.inflate(R.layout.fab, null);
         btn_save = v.findViewById(R.id.btn_save);
         ed_name = v.findViewById(R.id.ed_name);
@@ -34,14 +39,17 @@ public class FABBirthday extends DialogFragment {
             @Override
             public void onClick(View v) {
                 addBirthday();
-
+                getActivity().recreate();
+                Toast.makeText(getContext(), "Збережено", Toast.LENGTH_SHORT);
+                dismiss();
             }
         });
         btn_cancel = v.findViewById(R.id.btn_cansel);
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getDialog().dismiss();
+               dismiss();
+               Toast.makeText(getContext(), "Скасовано", Toast.LENGTH_SHORT);
             }
         });
         return v;

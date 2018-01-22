@@ -10,4 +10,7 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="dev_pc.recyclerviewsqlite.fragments.birthdayFragment.BirthdayFragment"
-    tools:listitem="@layout/fragment_birthday" />
+    tools:listitem="@layout/fragment_birthday"
+    android:background="?android:attr/selectableItemBackground">
+
+</android.support.v7.widget.RecyclerView>
