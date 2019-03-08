@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite;
+package dev_pc.recyclerviewsqlite.ui.fragments;
 
 
 import android.content.Context;
@@ -9,10 +9,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.HashMap;
 import java.util.Map;
 
-import dev_pc.recyclerviewsqlite.fragments.BirthdaysFragment;
-import dev_pc.recyclerviewsqlite.fragments.TasksFragment;
+import dev_pc.recyclerviewsqlite.ui.fragments.birthdayFragment.BirthdaysFragment;
+import dev_pc.recyclerviewsqlite.ui.fragments.taskFragment.TasksFragment;
 
-class TabsAdapter extends FragmentPagerAdapter{
+public class TabsAdapter extends FragmentPagerAdapter{
     private Map<Integer, AbstractTabsFragment> tabs;
     Context context;
 

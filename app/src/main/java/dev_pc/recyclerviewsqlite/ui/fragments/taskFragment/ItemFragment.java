@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite.fragments.birthdayFragment;
+package dev_pc.recyclerviewsqlite.ui.fragments.taskFragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import dev_pc.recyclerviewsqlite.AdapterBirthday;
-import dev_pc.recyclerviewsqlite.DBdao;
+import dev_pc.recyclerviewsqlite.models.AdapterZadach;
+import dev_pc.recyclerviewsqlite.data_base.DBdao;
 import dev_pc.recyclerviewsqlite.R;
 
 /**
@@ -20,26 +20,24 @@ import dev_pc.recyclerviewsqlite.R;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class BirthdayFragment extends Fragment {
+public class ItemFragment extends Fragment {
 
     private DBdao dBdao = new DBdao();
+
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public BirthdayFragment() {
+
+    public ItemFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static BirthdayFragment newInstance(int columnCount) {
-        BirthdayFragment fragment = new BirthdayFragment();
+    public static ItemFragment newInstance(int columnCount) {
+        ItemFragment fragment = new ItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -58,7 +56,7 @@ public class BirthdayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_birthday_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -69,7 +67,7 @@ public class BirthdayFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MybirthdayRecyclerViewAdapter(dBdao.getBirthdayList(getContext()), mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(dBdao.getTaskList(getContext()), mListener));
         }
         return view;
     }
@@ -104,7 +102,7 @@ public class BirthdayFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction1(AdapterBirthday item);
-
+        void onListFragmentInteraction(AdapterZadach item);
     }
+
 }

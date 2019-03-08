@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite;
+package dev_pc.recyclerviewsqlite.data_base;
 
 import android.content.ContentValues;
 import android.content.Context;

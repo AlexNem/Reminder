@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite;
+package dev_pc.recyclerviewsqlite.data_base;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import dev_pc.recyclerviewsqlite.models.AdapterBirthday;
+import dev_pc.recyclerviewsqlite.models.AdapterZadach;
 
 /**
  * Created by Dev-pc on 13.01.2018.

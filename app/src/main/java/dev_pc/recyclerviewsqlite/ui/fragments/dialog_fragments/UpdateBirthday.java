@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite.fragments;
+package dev_pc.recyclerviewsqlite.ui.fragments.dialog_fragments;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,23 +13,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import dev_pc.recyclerviewsqlite.AdapterZadach;
-import dev_pc.recyclerviewsqlite.MyDBHelper;
+import dev_pc.recyclerviewsqlite.models.AdapterBirthday;
+import dev_pc.recyclerviewsqlite.data_base.MyDBHelper;
 import dev_pc.recyclerviewsqlite.R;
 
 /**
- * Created by Dev-pc on 16.01.2018.
+ * Created by Dev-pc on 18.01.2018.
  */
 
-public class UpdateTask extends DialogFragment {
+public class UpdateBirthday extends DialogFragment {
 
-  private Button btn_delete, btn_update;
-  private EditText upd_name, upd_inf;
-  private AdapterZadach adapterZadach;
+    private Button btn_delete, btn_update;
+    private EditText upd_name, upd_inf;
+    private AdapterBirthday adapterBirthday;
 
-
-    public void setAdapterZadach(AdapterZadach adapterZadach) {
-        this.adapterZadach = adapterZadach;
+    public void setAdapterBirthday(AdapterBirthday adapterBirthday) {
+        this.adapterBirthday = adapterBirthday;
     }
 
     @Nullable
@@ -45,7 +44,7 @@ public class UpdateTask extends DialogFragment {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updZadachu();
+                updBirthday();
                 Toast.makeText(getContext(), "Оновлено", Toast.LENGTH_SHORT).show();
                 dismiss();
             }
@@ -53,7 +52,7 @@ public class UpdateTask extends DialogFragment {
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delZadachy();
+                delBirthday();
                 Toast.makeText(getContext(), "Видалено", Toast.LENGTH_SHORT).show();
                 dismiss();
             }
@@ -68,28 +67,29 @@ public class UpdateTask extends DialogFragment {
         setEditText();
     }
     private void setEditText(){
-        upd_name.setText(adapterZadach.getName());
-        upd_inf.setText(adapterZadach.getInf());
+        upd_name.setText(adapterBirthday.getName());
+        upd_inf.setText(adapterBirthday.getData());
     }
 
-    public void updZadachu(){
+
+    public void updBirthday(){
         MyDBHelper dbH = new MyDBHelper(getContext());
         SQLiteDatabase db = dbH.getWritableDatabase();
-        adapterZadach.setName(upd_name.getText().toString());
-        adapterZadach.setInf(upd_inf.getText().toString());
+        adapterBirthday.setName(upd_name.getText().toString());
+        adapterBirthday.setData(upd_inf.getText().toString());
         ContentValues cv = new ContentValues();
-
-        cv.put(dbH.KEY_NAME, adapterZadach.getName());
-        cv.put(dbH.KEY_INF, adapterZadach.getInf());
-        db.update(dbH.TABLE_NAME, cv, "_id = ?", new String[]{Integer.toString(adapterZadach.getId())} );
+        cv.put(dbH.KEY_BNAME, adapterBirthday.getName());
+        cv.put(dbH.KEY_DATA, adapterBirthday.getData());
+        db.update(dbH.TABLE_BIRTHDAY, cv, "_id = ?", new String[]{Integer.toString(adapterBirthday.getId())} );
         dbH.close();
         getActivity().recreate();
     }
-    public void delZadachy(){
+    public void delBirthday(){
         MyDBHelper dbH = new MyDBHelper(getContext());
         SQLiteDatabase db = dbH.getWritableDatabase();
-        db.delete(MyDBHelper.TABLE_NAME, "_id = " + Integer.toString(adapterZadach.getId()), null);
+        db.delete(MyDBHelper.TABLE_BIRTHDAY, "_id = " + Integer.toString(adapterBirthday.getId()), null);
         dbH.close();
         getActivity().recreate();
     }
 }
+

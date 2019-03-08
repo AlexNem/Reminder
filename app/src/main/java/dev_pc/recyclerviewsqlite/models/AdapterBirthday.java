@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite;
+package dev_pc.recyclerviewsqlite.models;
 
 /**
  * Created by Dev-pc on 15.01.2018.

@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite;
+package dev_pc.recyclerviewsqlite.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -6,14 +6,17 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import dev_pc.recyclerviewsqlite.fragments.UpdateTask;
-import dev_pc.recyclerviewsqlite.fragments.birthdayFragment.BirthdayFragment;
-import dev_pc.recyclerviewsqlite.fragments.taskFragment.ItemFragment;
-import dev_pc.recyclerviewsqlite.fragments.taskFragment.UpdateBirthday;
+import dev_pc.recyclerviewsqlite.models.AdapterBirthday;
+import dev_pc.recyclerviewsqlite.models.AdapterZadach;
+import dev_pc.recyclerviewsqlite.R;
+import dev_pc.recyclerviewsqlite.ui.fragments.TabsAdapter;
+import dev_pc.recyclerviewsqlite.ui.fragments.dialog_fragments.UpdateTask;
+import dev_pc.recyclerviewsqlite.ui.fragments.birthdayFragment.ItemFragment;
+import dev_pc.recyclerviewsqlite.ui.fragments.dialog_fragments.UpdateBirthday;
 
 public class MainActivity extends AppCompatActivity implements
-        ItemFragment.OnListFragmentInteractionListener,
-        BirthdayFragment.OnListFragmentInteractionListener{
+        dev_pc.recyclerviewsqlite.ui.fragments.taskFragment.ItemFragment.OnListFragmentInteractionListener,
+        ItemFragment.OnListFragmentInteractionListener{
 
 
     private ViewPager viewPager;

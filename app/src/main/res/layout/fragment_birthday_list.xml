@@ -9,7 +9,7 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="dev_pc.recyclerviewsqlite.fragments.birthdayFragment.BirthdayFragment"
+    tools:context=".ui.fragments.birthdayFragment.ItemFragment"
     tools:listitem="@layout/fragment_birthday"
     android:background="?android:attr/selectableItemBackground">
 

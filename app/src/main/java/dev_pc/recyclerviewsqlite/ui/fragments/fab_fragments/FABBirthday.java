@@ -1,4 +1,4 @@
-package dev_pc.recyclerviewsqlite.fragments;
+package dev_pc.recyclerviewsqlite.ui.fragments.fab_fragments;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import dev_pc.recyclerviewsqlite.AdapterBirthday;
-import dev_pc.recyclerviewsqlite.MyDBHelper;
+import dev_pc.recyclerviewsqlite.models.AdapterBirthday;
+import dev_pc.recyclerviewsqlite.data_base.MyDBHelper;
 import dev_pc.recyclerviewsqlite.R;
 
 /**
